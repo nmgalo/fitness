@@ -1,8 +1,13 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.plugin.serialization") version Versions.KOTLIN
 }
 
 android {
@@ -22,6 +27,16 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+    }
+
+    val cfg = Properties().apply {
+        load(FileInputStream(File(rootProject.rootDir, "apiKey.properties")))
+    }
+
+    buildTypes.forEach {
+        cfg.forEach { key, value ->
+            it.buildConfigField("String", key.toString(), value.toString())
         }
     }
 
