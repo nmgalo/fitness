@@ -11,13 +11,6 @@ fun Project.applyCoreLibs() {
     }
 }
 
-fun Project.applyNavigation() {
-    dependencies {
-        add("implementation", Libs.NAVIGATION_UI)
-        add("implementation", Libs.NAVIGATION_FRAGMENT)
-    }
-}
-
 fun Project.applyHilt() {
     dependencies {
         add("implementation", Libs.HILT)

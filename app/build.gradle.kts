@@ -37,7 +37,6 @@ android {
 dependencies {
 
     applyCoreLibs()
-    applyNavigation()
     applyHilt()
     applyNetwork()
 
