@@ -11,6 +11,14 @@ fun Project.applyCoreLibs() {
     }
 }
 
+fun Project.applyFirebase() {
+    dependencies {
+        add("implementation", platform(Libs.FIREBASE_BOM))
+        add("implementation", Libs.FIREBASE_AUTH)
+        add("implementation", Libs.FIREBASE_FIRE_STORE)
+    }
+}
+
 fun Project.applyHilt() {
     dependencies {
         add("implementation", Libs.HILT)

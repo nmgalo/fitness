@@ -13,4 +13,9 @@ object Libs {
     const val HTTP_LOGGER = "com.squareup.okhttp3:logging-interceptor:${Versions.HTTP_LOGGER}"
     const val SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.SERIALIZATION}"
     const val SERIALIZATION_CONVERTER = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.SERIALIZATION_CONVERTER}"
+    const val FIREBASE_BOM = "com.google.firebase:firebase-bom:${Versions.FIREBASE_BOM}"
+    const val FIREBASE_AUTH = "com.google.firebase:firebase-auth"
+    const val FIREBASE_FIRE_STORE = "com.google.firebase:firebase-firestore-ktx"
+
+
 }

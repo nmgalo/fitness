@@ -12,4 +12,6 @@ object Versions {
     const val HTTP_LOGGER = "4.9.3"
     const val SERIALIZATION = "1.3.2"
     const val SERIALIZATION_CONVERTER = "0.8.0"
+    const val GOOGLE_SERVICES = "4.3.10"
+    const val FIREBASE_BOM = "30.1.0"
 }
