@@ -7,12 +7,12 @@ import kotlinx.serialization.Serializable
 data class RecipeDTO(
     val id: Long,
     val title: String,
-    val calories: Int,
-    val carbs: String,
-    val fat: String,
+    val calories: Int = 0,
+    val carbs: String = "",
+    val fat: String = "",
     val image: String,
     val imageType: String,
-    val protein: String
+    val protein: String = ""
 ) {
     fun toDomainModel() = RecipesDomainModel(
         id = this.id,
