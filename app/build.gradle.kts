@@ -57,6 +57,7 @@ android {
 dependencies {
 
     applyCoreLibs()
+    applyNavigation()
     applyHilt()
     applyFirebase()
     applyNetwork()

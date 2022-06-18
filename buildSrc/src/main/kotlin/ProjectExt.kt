@@ -11,6 +11,13 @@ fun Project.applyCoreLibs() {
     }
 }
 
+fun Project.applyNavigation() {
+    dependencies {
+        add("implementation", Libs.NAVIGATION_UI)
+        add("implementation", Libs.NAVIGATION_FRAGMENT)
+    }
+}
+
 fun Project.applyFirebase() {
     dependencies {
         add("implementation", platform(Libs.FIREBASE_BOM))
