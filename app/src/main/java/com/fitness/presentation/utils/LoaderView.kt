@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import com.fitness.R
+import com.fitness.presentation.utils.extensions.gone
+import com.fitness.presentation.utils.extensions.show
 
 class LoaderView @JvmOverloads constructor(
     context: Context,

@@ -1,4 +1,4 @@
-package com.fitness.presentation.utils
+package com.fitness.presentation.utils.extensions
 
 import android.view.View
 
