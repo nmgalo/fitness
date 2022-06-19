@@ -28,8 +28,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>(R.layout.fragment_sign_up) 
 
     private fun FragmentSignUpBinding.onViewBind() {
         btnLogin.setOnClickListener {
-            val action = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()
-            findNavController().navigate(action)
+            findNavController().popBackStack()
         }
         btnSignUp.setOnClickListener {
             validateFields(etEmail, etPassword, etConfirmPassword)

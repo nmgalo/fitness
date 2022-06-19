@@ -6,11 +6,10 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.createViewModelLazy
-import androidx.lifecycle.ViewModel
 import com.fitness.presentation.main.MainViewModel
 import kotlin.reflect.KClass
 
-abstract class BaseFragment<ViewModel : BaseViewModel>(@LayoutRes layout: Int) : Fragment(layout){
+abstract class BaseFragment<ViewModel : BaseViewModel>(@LayoutRes layout: Int) : Fragment(layout) {
 
     abstract val viewModelClass: KClass<ViewModel>
 
@@ -24,6 +23,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel>(@LayoutRes layout: Int) :
         viewModel.setHandler(parentViewModel)
         collectFlows()
     }
+
     open fun collectFlows() {}
 
 

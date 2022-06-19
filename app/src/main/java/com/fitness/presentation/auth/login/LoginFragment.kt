@@ -2,7 +2,7 @@ package com.fitness.presentation.auth.login
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.fitness.R
 import com.fitness.databinding.FragmentLoginBinding
 import com.fitness.presentation.common.BaseFragment
@@ -27,7 +27,7 @@ class LoginFragment : BaseFragment<LoginViewModel>(R.layout.fragment_login) {
         collectSharedFlowStarted(viewModel.onUserLoggedIn) {
             if (it) {
                 val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                requireView().findNavController().navigate(action)
+                findNavController().navigate(action)
             }
         }
     }
@@ -40,7 +40,7 @@ class LoginFragment : BaseFragment<LoginViewModel>(R.layout.fragment_login) {
 
         btnSignUp.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToSignUpFragment()
-            requireView().findNavController().navigate(action)
+            findNavController().navigate(action)
         }
 
     }
