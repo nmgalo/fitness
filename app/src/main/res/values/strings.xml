@@ -3,5 +3,15 @@
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login_"><u>Login</u></string>
+    <string name="sign_up_"><u>Sign Up</u></string>
+
+    <string name="confirm_password">Re-enter Password</string>
+    <string name="home">Home</string>
+    <string name="map">Map</string>
+    <string name="tracker">Tracker</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="no_account_title">Don\'t have an account?</string>
 </resources>

@@ -15,4 +15,11 @@ object Versions {
     const val SERIALIZATION_CONVERTER = "0.8.0"
     const val GOOGLE_SERVICES = "4.3.10"
     const val FIREBASE_BOM = "30.1.0"
+    const val DATA_STORE = "30.1.0"
+    const val PROTOBUF = "3.18.0"
+
+    const val ANDROIDX_LEGACY = "1.0.0"
+    const val LIFECYCLE = "2.4.1"
+    const val ACTIVITY_LIFECYCLE = "1.4.0"
+    const val ANDROIDX_SECURITY = "1.1.0-alpha03"
 }

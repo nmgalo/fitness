@@ -11,10 +11,22 @@ fun Project.applyCoreLibs() {
     }
 }
 
+
 fun Project.applyNavigation() {
     dependencies {
         add("implementation", Libs.NAVIGATION_UI)
         add("implementation", Libs.NAVIGATION_FRAGMENT)
+    }
+}
+
+fun Project.applyAndroidX() {
+    dependencies {
+        add("implementation", Libs.ACTIVITY_LIFECYCLE)
+        add("implementation", Libs.ACTIVITY_LIFECYCLE)
+        add("implementation", Libs.LIFECYCLE_RUNTIME)
+        add("implementation", Libs.ANDROIDX_LEGACY)
+        add("implementation", Libs.VIEWMODEL_LIFECYCLE)
+        add("implementation", Libs.ANDROIDX_SECURITY)
     }
 }
 

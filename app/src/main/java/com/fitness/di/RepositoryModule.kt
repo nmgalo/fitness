@@ -1,6 +1,8 @@
 package com.fitness.di
 
+import com.fitness.data.preferences.CredentialsRepositoryImpl
 import com.fitness.data.recipes.RecipesRepoImpl
+import com.fitness.domain.preferences.CredentialsRepo
 import com.fitness.domain.recipes.RecipesRepo
 import dagger.Binds
 import dagger.Module
@@ -15,4 +17,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun provideRecipesRepo(recipesRepo: RecipesRepoImpl): RecipesRepo
+
+    @Binds
+    @Singleton
+    abstract fun provideCredentialsRepo(recipesRepo: CredentialsRepositoryImpl): CredentialsRepo
 }

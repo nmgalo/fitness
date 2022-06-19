@@ -7,6 +7,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     kotlin("kapt")
+    id("androidx.navigation.safeargs")
     id("dagger.hilt.android.plugin")
     id("org.jetbrains.kotlin.plugin.serialization") version Versions.KOTLIN
 }
@@ -56,6 +57,10 @@ android {
 
 dependencies {
 
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+    implementation("com.airbnb.android:lottie:5.0.3")
+
+    applyAndroidX()
     applyCoreLibs()
     applyNavigation()
     applyHilt()
