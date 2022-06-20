@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.fitness.R
@@ -15,7 +16,6 @@ import com.fitness.databinding.ActivityMainBinding
 import com.fitness.presentation.auth.login.LoginFragmentDirections
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.utils.dialogs.LoaderAnimDialog
-import com.fitness.presentation.utils.extensions.hideBottomBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.container)
         binding.navigation.setupWithNavController(navController)
-        checkCurrentFragment()
+        checkCurrentFragment(navController)
 
         viewModel.activityCommandSubject
             .flowWithLifecycle(lifecycle, Lifecycle.State.CREATED)
@@ -56,9 +56,7 @@ class MainActivity : AppCompatActivity() {
                 toggleLoader(command.show)
             }
             ActivityCommand.NavigateToHome -> {
-                val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                findNavController(R.id.container)
-                    .navigate(action)
+                findNavController(R.id.container).navigate(R.id.action_global_homeFragment)
             }
         }
     }
@@ -71,11 +69,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkCurrentFragment() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.container)
-        binding.navigation.isVisible = navHostFragment?.hideBottomBar() == true
-        navHostFragment?.childFragmentManager?.addOnBackStackChangedListener {
-            binding.navigation.isVisible = navHostFragment.hideBottomBar() == true
+    private fun checkCurrentFragment(navController: NavController) {
+        binding.navigation.isVisible = false
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.navigation.isVisible = when (destination.id) {
+                R.id.loginFragment -> false
+                R.id.signUpFragment -> false
+                else -> true
+            }
         }
     }
 
