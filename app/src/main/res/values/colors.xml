@@ -12,5 +12,6 @@
     <color name="light_gray">#E3E5E6</color>
     <color name="color_gray">#505050</color>
     <color name="colorPrimary">#39BF9E</color>
-
+    <color name="whiteLilac">#F7F8FC</color>
+    <color name="athens_gray_dark">#F0F0F2</color>
 </resources>

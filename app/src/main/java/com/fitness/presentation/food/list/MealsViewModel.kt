@@ -17,9 +17,9 @@ class MealsViewModel @Inject constructor(
     private val _meals = MutableSharedFlow<List<MealUIModel>>()
     val meals = _meals.asSharedFlow()
 
-    fun search(query: String) {
+    fun search(query: CharSequence) {
         execute(withLoader = true) {
-            _meals.emit(useCase.execute(query).map { it.toUIModel() })
+            _meals.emit(useCase.execute(query.toString()).map { it.toUIModel() })
         }
     }
 

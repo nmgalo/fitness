@@ -16,4 +16,5 @@
     <string name="favorites">Favorites</string>
     <string name="no_account_title">Don\'t have an account?</string>
     <string name="food_image">Food Image</string>
+    <string name="search_product">Search product</string>
 </resources>
