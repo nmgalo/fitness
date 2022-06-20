@@ -12,6 +12,8 @@
     <string name="map">Map</string>
     <string name="tracker">Tracker</string>
     <string name="search">Search</string>
+    <string name="meal">Meal</string>
     <string name="favorites">Favorites</string>
     <string name="no_account_title">Don\'t have an account?</string>
+    <string name="food_image">Food Image</string>
 </resources>

@@ -59,6 +59,7 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
     implementation("com.airbnb.android:lottie:5.0.3")
+    implementation("com.squareup.picasso:picasso:2.71828")
 
     applyAndroidX()
     applyCoreLibs()
