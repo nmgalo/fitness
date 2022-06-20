@@ -6,7 +6,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CredentialsRepositoryImpl @Inject constructor(
+class CredentialsRepoImpl @Inject constructor(
     private val userPreferences: UserPreferences
 ) : CredentialsRepo {
 
