@@ -42,9 +42,10 @@ class MainViewModel @Inject constructor(
     }
 
     fun initialNetworkListener() {
-        viewModelScope.launch {
-            _activityCommandSubject.emit(ActivityCommand.NavigateToOfflineScreen)
-        }
+//        TODO: Fix later!!!
+//        viewModelScope.launch {
+//            _activityCommandSubject.emit(ActivityCommand.NavigateToOfflineScreen)
+//        }
     }
 }
 
