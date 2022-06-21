@@ -13,7 +13,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.fitness.R
 import com.fitness.databinding.ActivityMainBinding
-import com.fitness.presentation.auth.login.LoginFragmentDirections
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.utils.dialogs.LoaderAnimDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         viewModel.initializeSessionStatus()
+        viewModel.initialNetworkListener()
     }
 
     private fun onCommandReceived(command: ActivityCommand) {
@@ -58,6 +58,8 @@ class MainActivity : AppCompatActivity() {
             ActivityCommand.NavigateToHome -> {
                 findNavController(R.id.container).navigate(R.id.action_global_homeFragment)
             }
+            ActivityCommand.NavigateToOfflineScreen ->
+                findNavController(R.id.container).navigate(R.id.action_global_offlineFragment)
         }
     }
 
@@ -75,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             binding.navigation.isVisible = when (destination.id) {
                 R.id.loginFragment -> false
                 R.id.signUpFragment -> false
+                R.id.offlineFragment -> false
                 else -> true
             }
         }

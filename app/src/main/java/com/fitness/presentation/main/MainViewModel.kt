@@ -2,6 +2,7 @@ package com.fitness.presentation.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.fitness.data.common.InternetConnection
 import com.fitness.domain.preferences.CredentialsRepo
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.common.commands.BaseCommand
@@ -15,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val credentialsRepo: CredentialsRepo
+    private val credentialsRepo: CredentialsRepo,
+    private val internetConnection: InternetConnection
 ) : ViewModel(), CommandHandler {
 
     private val _activityCommandSubject: MutableSharedFlow<ActivityCommand> = MutableSharedFlow()
@@ -36,6 +38,12 @@ class MainViewModel @Inject constructor(
             val isAuthenticated = credentialsRepo.getAuthToken().isNotEmpty()
             if (isAuthenticated)
                 _activityCommandSubject.emit(ActivityCommand.NavigateToHome)
+        }
+    }
+
+    fun initialNetworkListener() {
+        viewModelScope.launch {
+            _activityCommandSubject.emit(ActivityCommand.NavigateToOfflineScreen)
         }
     }
 }

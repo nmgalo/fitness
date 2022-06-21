@@ -17,4 +17,7 @@
     <string name="no_account_title">Don\'t have an account?</string>
     <string name="food_image">Food Image</string>
     <string name="search_product">Search product</string>
+    <string name="an_error_occurred">An error occurred</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="try_again">Try again</string>
 </resources>

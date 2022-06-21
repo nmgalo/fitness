@@ -1,10 +1,13 @@
 package com.fitness.di
 
+import android.content.Context
 import com.fitness.BuildConfig
+import com.fitness.data.common.InternetConnection
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -45,4 +48,7 @@ object NetworkModule {
         return retrofit.build()
     }
 
+    @Provides
+    fun provideInternetConnectionListener(@ApplicationContext context: Context) =
+        InternetConnection(context)
 }

@@ -10,6 +10,11 @@
         app:destination="@id/homeFragment"
         app:popUpTo="@id/nav_graph.xml" />
 
+    <action
+        android:id="@+id/action_global_offlineFragment"
+        app:destination="@id/offlineFragment"
+        app:popUpTo="@id/nav_graph.xml" />
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.fitness.presentation.auth.login.LoginFragment"
@@ -44,5 +49,11 @@
         android:name="com.fitness.presentation.food.list.MealsFragment"
         android:label="MealsFragment"
         tools:layout="@layout/fragment_meals" />
+
+    <fragment
+        android:id="@+id/offlineFragment"
+        android:name="com.fitness.presentation.common.offline.OfflineFragment"
+        android:label="OfflineFragment"
+        tools:layout="@layout/fragment_offline" />
 
 </navigation>
