@@ -12,15 +12,20 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.fitness.R
+import com.fitness.data.common.InternetConnection
 import com.fitness.databinding.ActivityMainBinding
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.utils.dialogs.LoaderAnimDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var internetConnection: InternetConnection
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
@@ -44,7 +49,10 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         viewModel.initializeSessionStatus()
-        viewModel.initialNetworkListener()
+
+        internetConnection.observe(this) {
+            if (!it) onCommandReceived(ActivityCommand.NavigateToOfflineScreen)
+        }
     }
 
     private fun onCommandReceived(command: ActivityCommand) {
