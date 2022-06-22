@@ -32,4 +32,8 @@ object Libs {
     const val FIREBASE_AUTH = "com.google.firebase:firebase-auth"
     const val FIREBASE_FIRE_STORE = "com.google.firebase:firebase-firestore-ktx"
 
+    const val ROOM_RUNTIME = "androidx.room:room-runtime:${Versions.ROOM_VERSION}"
+    const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM_VERSION}"
+    const val Room_COMPILER = "androidx.room:room-compiler:${Versions.ROOM_VERSION}"
+
 }

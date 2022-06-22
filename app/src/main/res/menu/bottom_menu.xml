@@ -13,7 +13,7 @@
         android:title="@string/favorites" />
 
     <item
-        android:id="@+id/trackerFragment"
+        android:id="@+id/locationFragment"
         android:title="@string/tracker" />
 
 </menu>
