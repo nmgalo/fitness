@@ -57,15 +57,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun onCommandReceived(command: ActivityCommand) {
         when (command) {
-            is ActivityCommand.ShowWarning -> {
+            is ActivityCommand.ShowWarning ->
                 Toast.makeText(this, command.message, Toast.LENGTH_SHORT).show()
-            }
-            is ActivityCommand.ToggleLoader -> {
+            is ActivityCommand.ToggleLoader ->
                 toggleLoader(command.show)
-            }
-            ActivityCommand.NavigateToHome -> {
+            is ActivityCommand.Navigate ->
+                findNavController(R.id.container).navigate(command.destination)
+            ActivityCommand.NavigateToHome ->
                 findNavController(R.id.container).navigate(R.id.action_global_homeFragment)
-            }
             ActivityCommand.NavigateToOfflineScreen ->
                 findNavController(R.id.container).navigate(R.id.action_global_offlineFragment)
         }

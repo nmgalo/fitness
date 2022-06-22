@@ -4,5 +4,6 @@
     <attr name="colorTextSecondary" format="reference" />
 
     <attr name="colorSurfacePrimaryDark" format="reference" />
+    <attr name="colorSurfaceSecondary" format="reference" />
 
 </resources>

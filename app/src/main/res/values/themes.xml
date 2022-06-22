@@ -13,10 +13,20 @@
         <item name="colorTextSecondary">@color/bright_gray</item>
 
         <item name="colorSurfacePrimaryDark">@color/athens_gray_dark</item>
+        <item name="colorSurfaceSecondary">@color/white</item>
 
         <item name="android:statusBarColor">@color/colorPrimary</item>
+
+        <item name="toolbarStyle">@style/Widget.FitnessComponents.Toolbar.Surface</item>
+
     </style>
 
     <style name="Theme.Fitness.Auth" />
+
+    <style name="Theme.Fitness.FoodDetailed">
+        <item name="navigationIcon">@drawable/ic_chevron_left</item>
+        <item name="title">@string/food_information</item>
+        <item name="menu">@menu/food_detailed_menu</item>
+    </style>
 
 </resources>

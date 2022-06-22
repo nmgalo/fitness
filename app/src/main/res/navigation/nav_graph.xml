@@ -48,12 +48,30 @@
         android:id="@+id/mealsFragment"
         android:name="com.fitness.presentation.food.list.MealsFragment"
         android:label="MealsFragment"
-        tools:layout="@layout/fragment_meals" />
+        tools:layout="@layout/fragment_meals">
+        <action
+            android:id="@+id/action_mealsFragment_to_foodDetailsFragment"
+            app:destination="@id/foodDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/offlineFragment"
         android:name="com.fitness.presentation.common.offline.OfflineFragment"
         android:label="OfflineFragment"
         tools:layout="@layout/fragment_offline" />
+
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.fitness.presentation.food.detailed.FoodDetailsFragment"
+        android:label="FoodDetailsFragment"
+        tools:layout="@layout/fragment_food_detailed">
+        <argument
+            android:name="recipeId"
+            app:argType="long" />
+    </fragment>
 
 </navigation>
