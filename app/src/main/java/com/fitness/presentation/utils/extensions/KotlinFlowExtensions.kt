@@ -1,6 +1,5 @@
 package com.fitness.presentation.utils.extensions
 
-import android.app.Activity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleService

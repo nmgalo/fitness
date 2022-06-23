@@ -17,8 +17,12 @@ class MealsViewModel @Inject constructor(
     private val _meals = MutableSharedFlow<List<MealUIModel>>()
     val meals = _meals.asSharedFlow()
 
-    fun search(query: CharSequence) {
-        execute(withLoader = true) {
+    init {
+        search(query = "", withLoader = false)
+    }
+
+    fun search(query: CharSequence, withLoader: Boolean = true) {
+        execute(withLoader = withLoader) {
             _meals.emit(useCase.execute(query.toString()).map { it.toUIModel() })
         }
     }
@@ -32,7 +36,7 @@ class MealsViewModel @Inject constructor(
         image = this.image,
         protein = this.protein,
     ) {
-        // TODO handle item click
+        MealsFragmentDirections.actionMealsFragmentToFoodDetailsFragment(this.id).navigate()
     }
 
 }

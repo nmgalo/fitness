@@ -16,6 +16,11 @@
         app:destination="@id/homeFragment"
         app:popUpTo="@id/nav_graph.xml" />
 
+    <action
+        android:id="@+id/action_global_offlineFragment"
+        app:destination="@id/offlineFragment"
+        app:popUpTo="@id/nav_graph.xml" />
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.fitness.presentation.auth.login.LoginFragment"
@@ -49,11 +54,39 @@
         android:id="@+id/mealsFragment"
         android:name="com.fitness.presentation.food.list.MealsFragment"
         android:label="MealsFragment"
+<<<<<<< HEAD
         tools:layout="@layout/fragment_meals" />
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.fitness.presentation.map.LocationTrackerFragment"
         android:label="locationFragment"
         tools:layout="@layout/fragment_location_tracker" />
+=======
+        tools:layout="@layout/fragment_meals">
+        <action
+            android:id="@+id/action_mealsFragment_to_foodDetailsFragment"
+            app:destination="@id/foodDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/offlineFragment"
+        android:name="com.fitness.presentation.common.offline.OfflineFragment"
+        android:label="OfflineFragment"
+        tools:layout="@layout/fragment_offline" />
+
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.fitness.presentation.food.detailed.FoodDetailsFragment"
+        android:label="FoodDetailsFragment"
+        tools:layout="@layout/fragment_food_detailed">
+        <argument
+            android:name="recipeId"
+            app:argType="long" />
+    </fragment>
+>>>>>>> 629a7a3d49fe28f9fb458c395f460a058673788e
 
 </navigation>

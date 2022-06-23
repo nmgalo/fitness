@@ -6,7 +6,6 @@ import com.fitness.domain.preferences.CredentialsRepo
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.common.commands.BaseCommand
 import com.fitness.presentation.common.commands.CommandHandler
-import com.fitness.presentation.utils.enums.AuthSessionStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -38,5 +37,6 @@ class MainViewModel @Inject constructor(
                 _activityCommandSubject.emit(ActivityCommand.NavigateToHome)
         }
     }
+
 }
 

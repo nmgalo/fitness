@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.fitness.R
+import com.fitness.data.common.InternetConnection
 import com.fitness.databinding.ActivityMainBinding
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.utils.constants.ACTION_SHOW_TRACKING_FRAGMENT
@@ -30,9 +31,13 @@ import com.google.android.gms.maps.GoogleMap
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var internetConnection: InternetConnection
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
@@ -78,16 +83,18 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         viewModel.initializeSessionStatus()
+
+        internetConnection.observe(this) {
+            if (!it) onCommandReceived(ActivityCommand.NavigateToOfflineScreen)
+        }
     }
 
     private fun onCommandReceived(command: ActivityCommand) {
         when (command) {
-            is ActivityCommand.ShowWarning -> {
+            is ActivityCommand.ShowWarning ->
                 Toast.makeText(this, command.message, Toast.LENGTH_SHORT).show()
-            }
-            is ActivityCommand.ToggleLoader -> {
+            is ActivityCommand.ToggleLoader ->
                 toggleLoader(command.show)
-            }
             ActivityCommand.NavigateToHome -> {
                 if (intent?.action != ACTION_SHOW_TRACKING_FRAGMENT)
                     findNavController(R.id.container).navigate(R.id.action_global_homeFragment)
@@ -117,6 +124,10 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+            is ActivityCommand.Navigate ->
+                findNavController(R.id.container).navigate(command.destination)
+            ActivityCommand.NavigateToOfflineScreen ->
+                findNavController(R.id.container).navigate(R.id.action_global_offlineFragment)
         }
     }
 
@@ -145,6 +156,7 @@ class MainActivity : AppCompatActivity() {
             binding.navigation.isVisible = when (destination.id) {
                 R.id.loginFragment -> false
                 R.id.signUpFragment -> false
+                R.id.offlineFragment -> false
                 else -> true
             }
         }

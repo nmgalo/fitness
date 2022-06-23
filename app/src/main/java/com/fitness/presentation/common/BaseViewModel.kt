@@ -3,6 +3,7 @@ package com.fitness.presentation.common
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDirections
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.common.commands.CommandHandler
 import com.google.android.gms.common.api.ApiException
@@ -28,8 +29,6 @@ abstract class BaseViewModel : ViewModel() {
             if (withLoader)
                 toggleLoader(true)
             try {
-                if (withLoader)
-                    delay(600)
                 this.callback()
             } catch (exception: Exception) {
                 Log.e("exception", exception.message.toString())
@@ -66,5 +65,9 @@ abstract class BaseViewModel : ViewModel() {
                 message
             )
         )
+    }
+
+    fun NavDirections.navigate() {
+        commandHandler?.handleCommand(ActivityCommand.Navigate(this))
     }
 }
