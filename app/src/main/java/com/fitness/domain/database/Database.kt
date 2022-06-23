@@ -10,7 +10,7 @@ import com.fitness.domain.database.models.LocationTrackModel
     entities = [
         LocationTrackModel::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

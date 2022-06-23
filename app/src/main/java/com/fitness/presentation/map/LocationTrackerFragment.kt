@@ -12,6 +12,7 @@ import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.utils.constants.ACTION_PAUSE_SERVICE
 import com.fitness.presentation.utils.constants.ACTION_START_OR_RESUME_SERVICE
 import com.fitness.presentation.utils.constants.ACTION_STOP_SERVICE
+import com.fitness.presentation.utils.extensions.collectLatestStateFlowStarted
 import com.fitness.presentation.utils.services.Polyline
 import com.fitness.presentation.utils.services.TrackingService
 import com.fitness.presentation.utils.services.TrackingUtility
@@ -58,11 +59,10 @@ class LocationTrackerFragment :
             sendCommandToService(ACTION_STOP_SERVICE, requireContext())
         }
         cvPause.setOnClickListener {
-            if (isTracking){
+            if (isTracking) {
                 tvPause.text = getString(R.string.resume)
                 sendCommandToService(ACTION_PAUSE_SERVICE, requireContext())
-            }
-            else{
+            } else {
                 tvPause.text = getString(R.string.pause)
                 sendCommandToService(ACTION_START_OR_RESUME_SERVICE, requireContext())
             }
@@ -88,14 +88,14 @@ class LocationTrackerFragment :
             }
         }
 
-//        googleMap?.moveCamera(
-//            CameraUpdateFactory.newLatLngBounds(
-//                bounds.build(),
-//                binding.map.width,
-//                binding.map.height,
-//                (binding.map.height * 0.05f).toInt()
-//            )
-//        )
+        googleMap?.moveCamera(
+            CameraUpdateFactory.newLatLngBounds(
+                bounds.build(),
+                binding.map.width,
+                binding.map.height,
+                (binding.map.height * 0.05f).toInt()
+            )
+        )
     }
 
     private fun endRunAndSaveToDb() {
@@ -122,21 +122,20 @@ class LocationTrackerFragment :
     }
 
     private fun subscribeToObservers(binding: FragmentLocationTrackerBinding) {
-        TrackingService.isTracking.observe(viewLifecycleOwner) {
+        collectLatestStateFlowStarted(TrackingService.isTracking) {
             updateTracking(it, binding)
         }
-
-        TrackingService.pathPoints.observe(viewLifecycleOwner) {
+        collectLatestStateFlowStarted(TrackingService.pathPoints) {
             pathPoints = it
             addLatestPolyline()
             moveCameraToUser()
         }
-
-        TrackingService.timeRunInMillis.observe(viewLifecycleOwner) {
+        collectLatestStateFlowStarted(TrackingService.timeRunInMillis) {
             curTimeInMillis = it
             val formattedTime = TrackingUtility.getFormattedStopWatchTime(curTimeInMillis)
             binding.tvStopwatch.text = formattedTime
         }
+
     }
 
     private fun addLatestPolyline() {

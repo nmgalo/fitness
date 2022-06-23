@@ -2,6 +2,7 @@ package com.fitness.presentation.main
 
 import android.content.Intent
 import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -96,12 +97,19 @@ class MainActivity : AppCompatActivity() {
                 latestPermissionCallback = command.resultCallback
             }
             is ActivityCommand.GetLocationTracker -> {
-                askPermission.launch(
+                val locations = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
                     arrayOf(
                         PermissionsOptions.Location.key,
-                        PermissionsOptions.GPS.key
+                        PermissionsOptions.GPS.key,
                     )
-                )
+                } else {
+                    arrayOf(
+                        PermissionsOptions.Location.key,
+                        PermissionsOptions.GPS.key,
+                        PermissionsOptions.BK_LOC.key,
+                    )
+                }
+                askPermission.launch(locations)
                 onLocationPermissionReceived { granted ->
                     if (granted) {
                         getCurrentGpsLocation(command.map)

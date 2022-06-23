@@ -11,14 +11,11 @@ class LocationTrackerViewModel @Inject constructor(
     private val locationTrackRepo: LocationTrackRepoImpl
 ) : BaseViewModel() {
 
-    init {
-//        execute {
-//            locationTrackRepo.getData()
-//        }
-    }
 
 
-    fun insertRun(locationModel: LocationTrackModel) = execute {
-        locationTrackRepo.saveOrUpdateData(locationModel)
+    fun insertRun(locationModel: LocationTrackModel) {
+        execute {
+            locationTrackRepo.saveOrUpdateData(locationModel)
+        }
     }
 }
