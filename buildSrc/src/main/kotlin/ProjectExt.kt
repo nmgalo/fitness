@@ -19,6 +19,14 @@ fun Project.applyNavigation() {
     }
 }
 
+fun Project.applyRoom() {
+    dependencies {
+        add("implementation",Libs.ROOM_RUNTIME)
+        add("implementation",Libs.ROOM_KTX)
+        add("kapt",(Libs.Room_COMPILER))
+    }
+}
+
 fun Project.applyAndroidX() {
     dependencies {
         add("implementation", Libs.ACTIVITY_LIFECYCLE)

@@ -5,6 +5,7 @@ plugins {
     id("com.google.dagger.hilt.android") version Versions.HILT apply false
     id("androidx.navigation.safeargs.kotlin") version Versions.NAVIGATION apply false
     id("com.google.gms.google-services") version Versions.GOOGLE_SERVICES apply false
+    id ("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version Versions.GOOGLE_MAP_SECRET apply false
 }
 
 tasks.register("clean", Delete::class) {

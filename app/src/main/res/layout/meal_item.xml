@@ -52,7 +52,7 @@
         android:layout_height="0dp"
         android:contentDescription="@string/food_image"
         android:elevation="2dp"
-        android:src="@drawable/shape_btn_bk"
+        android:src="@drawable/shape_btn_bg"
         app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintStart_toStartOf="@+id/start"
         app:layout_constraintTop_toTopOf="@+id/top" />

@@ -6,6 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.createViewModelLazy
+import com.fitness.presentation.common.commands.BaseCommand
 import com.fitness.presentation.main.MainViewModel
 import kotlin.reflect.KClass
 
@@ -26,7 +27,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel>(@LayoutRes layout: Int) :
 
     open fun collectFlows() {}
 
-
+    protected fun postActivityCommand(command: BaseCommand) {
+        parentViewModel.handleCommand(command)
+    }
     override fun onDestroy() {
         viewModel.removeHandler()
         super.onDestroy()

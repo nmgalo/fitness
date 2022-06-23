@@ -1,7 +1,9 @@
 package com.fitness.di
 
+import com.fitness.data.database.LocationTrackRepoImpl
 import com.fitness.data.preferences.CredentialsRepoImpl
 import com.fitness.data.recipes.RecipesRepoImpl
+import com.fitness.domain.database.repositories.LocationTrackRepo
 import com.fitness.domain.preferences.CredentialsRepo
 import com.fitness.domain.recipes.RecipesRepo
 import dagger.Binds
@@ -21,4 +23,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun provideCredentialsRepo(recipesRepo: CredentialsRepoImpl): CredentialsRepo
+
+    @Binds
+    @Singleton
+    abstract fun provideLocationTrackerRepo(locationTrack: LocationTrackRepoImpl): LocationTrackRepo
 }
