@@ -1,5 +1,6 @@
 package com.fitness.data.common
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
@@ -25,6 +26,7 @@ class InternetConnection @Inject constructor(context: Context) : LiveData<Boolea
         }
     }
 
+    @SuppressLint("MissingPermission")
     override fun onActive() {
         super.onActive()
         val networkRequest = NetworkRequest.Builder()

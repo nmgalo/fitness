@@ -18,11 +18,11 @@ class MealsViewModel @Inject constructor(
     val meals = _meals.asSharedFlow()
 
     init {
-        search(query = "", withLoader = false)
+        search(query = "")
     }
 
-    fun search(query: CharSequence, withLoader: Boolean = true) {
-        execute(withLoader = withLoader) {
+    fun search(query: CharSequence) {
+        execute {
             _meals.emit(useCase.execute(query.toString()).map { it.toUIModel() })
         }
     }
