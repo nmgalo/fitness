@@ -11,8 +11,6 @@ class LocationTrackerViewModel @Inject constructor(
     private val locationTrackRepo: LocationTrackRepoImpl
 ) : BaseViewModel() {
 
-
-
     fun insertRun(locationModel: LocationTrackModel) {
         execute {
             locationTrackRepo.saveOrUpdateData(locationModel)

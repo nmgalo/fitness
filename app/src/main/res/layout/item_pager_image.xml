@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivMap"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitleDistance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/distance"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvTitleTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMap" />
+
+    <TextView
+        android:id="@+id/tvDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitleDistance"
+        app:layout_constraintStart_toStartOf="@id/tvTitleDistance"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleDistance"
+        tools:text="2.4 km" />
+
+    <TextView
+        android:id="@+id/tvTitleTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/time"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTitleDistance"
+        app:layout_constraintTop_toBottomOf="@+id/ivMap" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitleTime"
+        app:layout_constraintStart_toStartOf="@id/tvTitleTime"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleTime"
+        tools:text="2.4 km" />
+
+
+    <TextView
+        android:id="@+id/tvTitleCalories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/calories"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvTitleAvgSpeed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDistance" />
+
+    <TextView
+        android:id="@+id/tvCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitleCalories"
+        app:layout_constraintStart_toStartOf="@id/tvTitleCalories"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleCalories"
+        tools:text="2.4 km" />
+
+    <TextView
+        android:id="@+id/tvTitleAvgSpeed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/avg_speed"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTitleCalories"
+        app:layout_constraintTop_toBottomOf="@+id/tvTime" />
+
+    <TextView
+        android:id="@+id/tvAvgSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/bright_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitleAvgSpeed"
+        app:layout_constraintStart_toStartOf="@id/tvTitleAvgSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleAvgSpeed"
+        tools:text="123 bpm" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
