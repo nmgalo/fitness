@@ -91,13 +91,13 @@
         android:id="@+id/cvStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="150dp"
         app:cardElevation="3dp"
         app:layout_constraintBottom_toBottomOf="@id/view"
         app:layout_constraintEnd_toEndOf="@id/view"
-        android:layout_marginBottom="20dp"
         app:layout_constraintStart_toStartOf="@id/view">
 
         <TextView

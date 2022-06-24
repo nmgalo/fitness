@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import com.fitness.R
 import com.fitness.databinding.FragmentLocationTrackerBinding
-import com.fitness.domain.database.models.LocationTrackModel
 import com.fitness.presentation.common.BaseFragment
 import com.fitness.presentation.common.commands.ActivityCommand
 import com.fitness.presentation.utils.constants.ACTION_PAUSE_SERVICE
@@ -23,8 +22,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.PolylineOptions
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
-import kotlin.math.round
 
 
 @AndroidEntryPoint
@@ -56,7 +53,6 @@ class LocationTrackerFragment :
             cvStop.isVisible = false
             zoomToSeeWholeTrack(this)
             endRunAndSaveToDb()
-            sendCommandToService(ACTION_STOP_SERVICE, requireContext())
         }
         cvPause.setOnClickListener {
             if (isTracking) {
@@ -100,24 +96,9 @@ class LocationTrackerFragment :
 
     private fun endRunAndSaveToDb() {
         googleMap?.snapshot { bmp ->
-            var distanceInMeters = 0
-            for (polyline in pathPoints) {
-                distanceInMeters += TrackingUtility.calculatePolylineLength(polyline).toInt()
-            }
-            val avgSpeed =
-                round((distanceInMeters / 1000f) / (curTimeInMillis / 1000f / 60 / 60) * 10) / 10f
-            val dateTimestamp = Calendar.getInstance().timeInMillis
-            val caloriesBurned = ((distanceInMeters / 1000f) * 80f).toInt()
-            val run = LocationTrackModel(
-                bmp,
-                dateTimestamp,
-                avgSpeed,
-                distanceInMeters,
-                curTimeInMillis,
-                caloriesBurned
-            )
-            viewModel.insertRun(run)
+            viewModel.calculateRun(bmp, pathPoints, curTimeInMillis)
             Toast.makeText(requireContext(), "Run saved successfully", Toast.LENGTH_SHORT).show()
+            sendCommandToService(ACTION_STOP_SERVICE, requireContext())
         }
     }
 

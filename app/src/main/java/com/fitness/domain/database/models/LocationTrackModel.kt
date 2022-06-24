@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "location_track")
 data class LocationTrackModel(
     var img: Bitmap? = null,
-    var timestamp: Long? = 0L,
-    var avgSpeedInKMH: Float? = 0f,
-    var distanceInMeters: Int? = 0,
-    var timeInMillis: Long? = 0L,
-    var caloriesBurned: Int? = 0
+    var timestamp: Long?,
+    var avgSpeedInKMH: Float?,
+    var distanceInMeters: Int?,
+    var timeInMillis: Long?,
+    var caloriesBurned: Int?
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
