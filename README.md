@@ -1,7 +1,6 @@
 # FitnessApp
 
-...
-
+The aim of this project is to develop an Android application that will help users to stay fit and healthy. The app will provide users with information about different exercises, healthy foods and tips on how to stay fit. The app will also allow users to track their progress and set goals.
 
 ### Built With  
   
