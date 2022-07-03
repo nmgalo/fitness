@@ -17,7 +17,8 @@ The aim of this project is to develop an Android application that will help user
 ### Preview
 
 <p align="center" width="100%">
-    <img src="./art/2.png" alt="App Screenshot" width="25%" />
-    <img src="./art/3.png" alt="App Screenshot" width="25%" />
-    <img src="./art/4.png" alt="App Screenshot" width="25%" />
+    <img src="./art/1.png" alt="App Screenshot" width="24%" />
+    <img src="./art/2.png" alt="App Screenshot" width="24%" />
+    <img src="./art/3.png" alt="App Screenshot" width="24%" />
+    <img src="./art/4.png" alt="App Screenshot" width="24%" />
 </p>
