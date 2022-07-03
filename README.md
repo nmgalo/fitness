@@ -13,3 +13,11 @@ The aim of this project is to develop an Android application that will help user
  * Presentation Layer - responsible of drawing information on android devices
 ##### Presentation Layer Architecture: [MVVM](https://developer.android.com/jetpack/guide)
 
+
+### Preview
+
+<p align="center" width="100%">
+    <img src="./art/2.png" alt="App Screenshot" width="25%" />
+    <img src="./art/3.png" alt="App Screenshot" width="25%" />
+    <img src="./art/4.png" alt="App Screenshot" width="25%" />
+</p>
